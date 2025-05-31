@@ -22,5 +22,9 @@ fn handle_connection(mut stream: TcpStream) {
         .collect();
 
     println!("Request: {:#?}", http_request);
+
+    let res = "HTTP/1.1 200 OK\r\n\r\n";
+    
+    stream.write_all(res.as_bytes()).unwrap();
 }
 
